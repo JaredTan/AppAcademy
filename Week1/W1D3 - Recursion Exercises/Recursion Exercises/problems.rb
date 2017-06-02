@@ -157,7 +157,62 @@ def permutations(array)
   sub_array
 end
 #
-# def bsearch(nums, target)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def permutations(arr)
+  return [[]] if arr.empty?
+  sub_arr = []
+  perms = permutations(arr[0...-1])
+
+  perms.each do |perm|
+    (0..perm.length).each do |el|
+      sub_arr << perm[0...el] + [arr.last] + perm[el..-1]
+    end
+  end
+  sub_arr
+end
+
+permutations([1,2,3])
+
+def subset(arr)
+
+  return [[]] if arr.empty?
+  subsets = subset(arr[0...-1])
+
+  changed_subs = subsets.map do |sub|
+    sub + [arr.last]
+  end
+  subsets + changed_subs
+end
+
+subset([1,2,3])
+
+  # def bsearch(nums, target)
 #   # nil if not found; can't find anything in an empty array
 #   return nil if nums.empty?
 #
@@ -180,29 +235,64 @@ end
 #   # up with an empty array.
 # end
 # #
-def bsearch(array, value)
-  return nil if array.empty?
-  half_index = array.length / 2
-  if array[half_index] > value
-    sub_array = array.take(half_index)
-    bsearch(sub_array, value)
-  elsif array[half_index] == value
-    half_index
-  else
-    sub_array = array.drop(half_index + 1)
-    sub_answer = bsearch(sub_array, value)
-    if sub_answer.nil?
-      nil
-    else
-      half_index + sub_answer + 1
+# def bsearch(array, value)
+#   return nil if array.empty?
+#   half_index = array.length / 2
+#   if array[half_index] > value
+#     sub_array = array.take(half_index)
+#     bsearch(sub_array, value)
+#   elsif array[half_index] == value
+#     half_index
+#   else
+#     sub_array = array.drop(half_index + 1)
+#     sub_answer = bsearch(sub_array, value)
+#     if sub_answer.nil?
+#       nil
+#     else
+#       half_index + sub_answer + 1
+#     end
+#   end
+# end
+class Array
+  def merge_sort
+    return self if count < 2
+
+    middle = count / 2
+
+    left, right = self.take(middle), self.drop(middle)
+    sorted_left, sorted_right = left.merge_sort, right.merge_sort
+
+    merge(sorted_left, sorted_right)
+  end
+
+  def merge(left, right)
+    merged_array = []
+    until left.empty? || right.empty?
+      merged_array <<
+        ((left.first < right.first) ? left.shift : right.shift)
     end
+
+    merged_array + left + right
   end
 end
 
-bsearch([1, 2, 3], 1) # => 0
-bsearch([2, 3, 4, 5], 3) # => 1
-bsearch([2, 4, 6, 8, 10], 6) # => 2
-bsearch([1, 3, 4, 5, 9], 5) # => 3
-bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+[12,5,3,6,4,1,6,4].merge_sort
+
+def merge_sort(arr)
+  return arr if arr.length < 2
+  half = arr.length / 2
+  # left = arr[0..half]
+  # right = arr[(half + 1)..-1]
+  merged_left = merge_sort(arr.take(half))
+  merged_right = merge_sort(arr.drop(half))
+  merged_arr = []
+  until merged_left.empty? || merged_right.empty?
+    merged_arr <<
+    ((merged_left.first < merged_right.first) ? merged_left.shift : merged_right.shift)
+  end
+  merged_arr + merged_left + merged_right
+end
+
+
+
+merge_sort([1,5,2,6,3,7,14])
