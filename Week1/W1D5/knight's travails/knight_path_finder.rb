@@ -10,20 +10,20 @@ class KnightPathFinder
     @visited_positions = [start_pos]
     @new_move_positions = []
     @root = PosNode.new(start_pos)
-    @backwards_path_arr = [@start_pos]
+    @path_arr = [@start_pos]
   end
 
   def find_path(end_pos)
     end_node = @root.dfs(end_pos)
     trace_back_path(end_node)
-      @backwards_path_arr.dup
+      @path_arr.dup
   end
 
   def trace_back_path(end_node)
     current_node = end_node
     return current_node if current_node.parent.nil?
-      result = trace_back_path(current_node.parent)
-      @backwards_path_arr << current_node.pos
+    result = trace_back_path(current_node.parent)
+    @path_arr << current_node.pos
   end
 
 
