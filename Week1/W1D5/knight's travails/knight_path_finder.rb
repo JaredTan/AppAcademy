@@ -1,4 +1,5 @@
 require_relative 'pos_node'
+require 'byebug'
 
 class KnightPathFinder
 
@@ -16,7 +17,7 @@ class KnightPathFinder
   def find_path(end_pos)
     end_node = @root.dfs(end_pos)
     trace_back_path(end_node)
-      @path_arr.dup
+    @path_arr.dup
   end
 
   def trace_back_path(end_node)
@@ -56,7 +57,7 @@ class KnightPathFinder
       [x + 1, y - 2],
       [x + 1, y + 2],
       [x + 2, y - 1],
-      [x + 2, y + 1],
+      [x + 2, y + 1]
     ]
     possible_moves_arr = all_pos_arr.select do |pos|
       pos.all? { |coord| (0..7).include?(coord) }
@@ -88,7 +89,7 @@ end
     start_pos = [0,0]
     chess_board = KnightPathFinder.new([0, 0])
     chess_board.build_move_tree
-    p chess_board.find_path([6, 2])
+    p chess_board.find_path([7, 7])
 
 
   end
