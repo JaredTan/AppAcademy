@@ -11,6 +11,8 @@ class Simon
   end
 
   def play
+    puts "\n\n\n\n\n\n\n\n\n\n Ready?"
+    sleep(2)
     until @game_over
       take_turn
     end
@@ -31,8 +33,8 @@ class Simon
     until i == @sequence_length
       puts "\n\n\n\n\n\n\n\n\n\n\n\n"
       puts "#{i + 1}: #{@seq[i]} \n\n\n\n\n\n\n\n\n\n\n"
-      sleep(0.5) if @sequence_length < 6
-      sleep(0.25) if @sequence_length > 5
+      sleep(0.75) if @sequence_length < 6
+      sleep(0.5) if @sequence_length > 5
       i += 1
     end
   end
