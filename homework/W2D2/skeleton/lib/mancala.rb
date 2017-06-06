@@ -38,8 +38,8 @@ class Mancala
           start_pos -= 1 if start_pos <= 6
         end
         move_result = @board.make_move(start_pos, current_player.name)
-      else
-        move_result = @board.make_move(move_result, current_player.name)
+      # else
+        # move_result = @board.make_move(move_result, current_player.name)
       end
       break if won?
     end
@@ -68,7 +68,7 @@ end
 if __FILE__ == $PROGRAM_NAME
 
   p1 = 'Jard'
-  p2 = 'Jasmine'
+  p2 = 'P2'
 
   Mancala.new(p1, p2).play
 end
