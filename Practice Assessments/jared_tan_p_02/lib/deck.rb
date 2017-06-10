@@ -6,8 +6,8 @@ class Deck
   # Returns an array of all 52 playing cards.
   def self.all_cards
     new_arr = []
-      Card.suits.each do |suit|
-      Card.values.each do |value|
+    Card.suits.each do |suit|
+    Card.values.each do |value|
         new_arr << Card.new(suit, value)
       end
     end

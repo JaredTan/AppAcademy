@@ -15,21 +15,26 @@ class Hand
 
   def points
     sum = 0
+    aces = 0
     @cards.each do |card|
-      if card.value == :ace && sum < 11
+      if card.value == :ace
+        aces += 1
         sum += 11
-      elsif card.value == :ace && sum >= 11
-        sum += 1
       else
         sum += BLACKJACK_VALUE[card.value]
       end
+
     end
+
+    aces.times do
+      sum -= 10 if sum > 21
+    end
+
     sum
   end
 
   def busted?
-    true if points > 21
-    false if points <= 21
+    points > 21
   end
 
   def hit(deck)

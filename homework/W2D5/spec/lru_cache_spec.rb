@@ -1,6 +1,7 @@
 require 'lru_cache'
 
 describe LRUCache do
+
   subject(:cache) do
     LRUCache.new(4)
   end
@@ -9,7 +10,6 @@ describe LRUCache do
     it "initializes with an empty array" do
     expect(cache.cache).to eq([])
   end
-
 end
 
   describe "#add" do
