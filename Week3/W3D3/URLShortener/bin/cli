@@ -1,0 +1,16 @@
+print 'Input your email:'
+ var = User.find_by(e_mail: gets.chomp)
+
+puts 'What do you want to do?'
+puts "0. Create shortened URL"
+puts "1. Visit shortened URL"
+  var2 = gets.chomp
+  if var2 == '0'
+
+    puts 'Type in your long url'
+    var3 = ShortenedUrl.create!(var, gets.chomp)
+
+    puts "Short URL is #{var3.short_url}"
+  else
+    print 'Type in the shortened url'
+  end
