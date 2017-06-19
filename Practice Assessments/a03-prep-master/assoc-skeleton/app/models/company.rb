@@ -28,4 +28,5 @@ class Company < ActiveRecord::Base
     foreign_key: :company_id,
     primary_key: :id
 
+
 end

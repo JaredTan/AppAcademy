@@ -4,6 +4,6 @@ class Exchange < ActiveRecord::Base
     class_name: :Company,
     foreign_key: :exchange_id,
     primary_key: :id
-    
+  
 
 end

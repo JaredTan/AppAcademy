@@ -10,4 +10,5 @@ class BoardMembership < ActiveRecord::Base
     foreign_key: :member_id,
     primary_key: :id
 
+  
 end

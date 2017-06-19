@@ -10,8 +10,8 @@ class WatchListItem < ActiveRecord::Base
     foreign_key: :company_id,
     primary_key: :id
 
-  has_many :watch_lists,
-    class_name: :WatchList,
-    foreign_key: :watch_list_id,
-    primary_key: :id
+  has_one :user,
+    through: :watch_list,
+    source: :user
+
 end

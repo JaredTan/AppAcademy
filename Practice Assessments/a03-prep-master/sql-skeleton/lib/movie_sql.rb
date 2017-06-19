@@ -21,7 +21,7 @@ end
 def bearded_films
   MovieDatabase.execute(<<-SQL)
     SELECT
-      title
+      movies.title
     FROM
       movies
     JOIN
@@ -31,7 +31,7 @@ def bearded_films
     WHERE
       actors.name = 'Chuck Norris'
     ORDER BY
-      title
+      movies.title
 
   SQL
 end
@@ -63,7 +63,7 @@ end
 def biggest_years_for_little_danny
   MovieDatabase.execute(<<-SQL)
     SELECT
-      yr, COUNT(*) AS count
+      yr, COUNT(*) AS 'count'
     FROM
       movies
     JOIN
@@ -73,7 +73,7 @@ def biggest_years_for_little_danny
     WHERE
       actors.name = 'Danny DeVito'
     GROUP BY
-      yr
+      movies.yr
     HAVING
       count > 2
   SQL
@@ -84,7 +84,7 @@ end
 def more_cage_please
   MovieDatabase.execute(<<-SQL)
     SELECT
-      title
+      movies.title
     FROM
       movies
     JOIN
@@ -104,7 +104,7 @@ end
 def who_is_florence_lawrence
   MovieDatabase.execute(<<-SQL)
     SELECT
-      title, actors.name
+      movies.title, actors.name
     FROM
       movies
     JOIN
@@ -112,7 +112,7 @@ def who_is_florence_lawrence
     JOIN
       actors ON castings.actor_id = actors.id
     WHERE
-      yr = 1908 AND castings.ord = 1
+      movies.yr = 1908 AND castings.ord = 1
     ORDER BY
       movies.title
 
@@ -125,13 +125,13 @@ end
 def count_bad_actors
   MovieDatabase.execute(<<-SQL)
     SELECT
-      COUNT(actors.id) as num_bad_actors
+      COUNT(*) as 'num_bad_actors'
     FROM
       actors
     LEFT JOIN
       castings ON castings.actor_id = actors.id
     WHERE
-      castings.actor_id IS NULL
+      castings.ord IS NULL
 
 SQL
 end
@@ -146,10 +146,12 @@ def twenty_roles
       actors
     JOIN
       castings ON castings.actor_id = actors.id
+    JOIN
+      movies ON castings.movie_id = movies.id
     WHERE
       castings.ord = 1
     GROUP BY
-      actors.name
+      actors.id
     HAVING
       COUNT(*) = 20
     ORDER BY
@@ -173,7 +175,7 @@ def chris_is_missed
     JOIN
       castings AS lead_castings ON lead_castings.movie_id = movies.id
     JOIN
-      actors AS lead_actors On lead_castings.actor_id = lead_actors.id
+      actors AS lead_actors ON lead_castings.actor_id = lead_actors.id
     WHERE
       chris_actors.name = 'Chris Farley' AND lead_castings.ord = 1
 

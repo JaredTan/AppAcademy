@@ -5,5 +5,6 @@ class Price < ActiveRecord::Base
     foreign_key: :company_id,
     primary_key: :id
 
+  
 
 end
