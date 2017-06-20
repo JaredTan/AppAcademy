@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Jared's Fried Rice</title>
 </head>
+
 <body>
+
 <header>
-  <img src="https://d3c5s1hmka2e2b.cloudfront.net/uploads/topic/image/4/appacademy.png" alt="App Academy Logo">
   <nav>
 
     <ul>
@@ -43,8 +45,7 @@
 <section>
   <h1>Fried Rice</h1>
   <figure>
-      <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjKsJ3MhMnUAhUY82MKHUZ0ArAQjRwIBw&url=http%3A%2F%2Fthewoksoflife.com%2F2015%2F08%2Fegg-fried-rice%2F&psig=AFQjCNEpaqkTbWjSR8K0WPvktvh9nDy0ew&ust=1497931699194701"
-           alt="Fried Rice Recipe">
+      <img src="http://assets.epicurious.com/photos/578e76951edb4f17303e3f22/master/pass/pork-fried-rice.jpg" alt="Fried Rice Recipe">
       <figcaption>
         <a href="https://en.wikipedia.org/wiki/Fried_rice">Wikipedia History</a>
       </figcaption>
@@ -89,8 +90,44 @@
   </ol>
 </section>
 
+<section>
+
+  <form action="/reviews" method ="post">
+
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name">
+
+    <label for="rating">Rating</label>
+    1<input type="radio" name="rating" value="1"checked>
+    2<input type="radio" name="rating" value="2">
+    3<input type="radio" name="rating" value="3">
+    4<input type="radio" name="rating" value="4">
+    5<input type="radio" name="rating" value="5">
+
+    <label for="expertise">Expertise</label>
+    <select id="expertise" name="expertise">
+      <option value="Select Cooking Experience" disabled="true" select="true">Select Cooking Experience</option>
+
+      <option value="Sometimes Cook">Sometimes Cook</option>
+
+      <option value="Cook Everyday">Cook Everyday</option>
+
+      <option value="Cooking is a hobby">Cooking is a Hobby</option>
+
+      <option value="Professional Chef">Professional Chef</option>
+    <select>
+
+      <label>Review
+        <textarea name="review" cols="35" rows="15"></textarea>
+      </label>
+
+      <input type="submit" value="Submit Review">
+  </form>
+
+</section>
+
 <footer>
-  <p> Recipe by Jared Tan </p>
+  <p> Recipe by Jared Tan ~ Cheers </p>
 </footer>
 
 </body>
