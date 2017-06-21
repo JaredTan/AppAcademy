@@ -1,0 +1,20 @@
+<h1>Cat Information</h1>
+
+<table>
+  <colgroup span="4"></colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Birthday</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.description || "Cat Description Not Avaliable" %></td>
+  </tr>
+
+</table>

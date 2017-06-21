@@ -1,0 +1,49 @@
+<h1>Edit the Kitty</h1>
+
+<h2>Current Information</h2>
+<table>
+  <colgroup span="4"></colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Birthday</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.description || "Cat Description Not Avaliable" %></td>
+  </tr>
+
+</table>
+<% _action = @cat.id ? cat_url(@cat) : cats_url %>
+<% _verb = @cat.id ? "PATCH" : "POST" %>
+<form action="<%_action%>" method="post" >
+  <input type="hidden" name="_method" value ="<%_verb%>">
+  <label for="name">Name</label>
+    <input id="name" type="text" name="cat[name]">
+  <br>
+  <label for="birth_date">Birthday</label>
+    <input id="birth_date" type="date" name="cat[birth_date]">
+    <br>
+  <label for="color">Color</label>
+    <input id="color" type="text" name= "cat[color]">
+    <br>
+  <label for="sex">Sex</label>
+    <select id="sex" name="cat[sex]">
+      <option value="Select Sex" disabled="true", selected="true"> -- Select Sex -- </option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+  <br>
+  <label>Description
+    <br>
+    <textarea name="cat[description]" cols="30" rows="10"></textarea>
+  </label>
+
+  <input type="Submit" value="Submit">
+
+</form>

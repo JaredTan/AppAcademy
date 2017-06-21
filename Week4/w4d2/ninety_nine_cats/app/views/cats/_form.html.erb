@@ -1,0 +1,30 @@
+
+</table>
+<% _action = cat.id ? cat_url(cat) : cats_url %>
+<% _verb = cat.id ? "PATCH" : "POST" %>
+<form action="<%=_action%>" method="post" >
+  <input type="hidden" name="_method" value ="<%=_verb%>">
+  <label for="name">Name</label>
+    <input id="name" type="text" name="cat[name]" value = "<%= cat.name %>">
+  <br>
+  <label for="birth_date">Birthday</label>
+    <input id="birth_date" type="date" name="cat[birth_date]" value = "<%= cat.birth_date %>">
+    <br>
+  <label for="color">Color</label>
+    <input id="color" type="text" name= "cat[color]" value = "<%= cat.color %>">
+    <br>
+  <label for="sex">Sex</label>
+    <select id="sex" name="cat[sex]">
+      <option disabled <%=@cat.sex ? "" : "selected" %> > -- Select Sex -- </option>
+      <option value="M" <%=@cat.sex == 'M' ? "selected" : '' %> >Male</option>
+      <option value="F" <%=@cat.sex == 'F' ? "selected" : '' %> >Female</option>
+    </select>
+  <br>
+  <label>Description
+    <br>
+    <textarea name="cat[description]" cols="30" rows="10" value = "<%= cat.description %>"></textarea>
+  </label>
+
+  <input type="submit" value="submit">
+
+</form>
