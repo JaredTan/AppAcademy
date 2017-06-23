@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%="#{@album.name}"%></title>
+  </head>
+  <body>
+    <% album.tracks.each do |track| %>
+      <%= link_to "#{track.name}", track_url(track) %>
+    <% end %>
+
+
+    <ul>
+      <%= link_to "New Track", new_track_url %>
+      <%= link_to "Edit Album", edit_album(@album) %>
+      <%= link_to "Bands Page", bands_url %>
+    </ul>
+  </body>
+</html>
+
+<% content_for :footer do %>
+  <p> This is the Album Page! </p>
+<% end %> 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%"#{@band.name}"%></title>
+  </head>
+
+  <h2>Albums</h2>
+    
+    <% @band.albums.each do |album| %>
+      <%= link_to "#{@band.album.name}", album_url(@band.album) %>
+    <% end %>
+
+  <body>
+
+  <li>
+    <% link_to 'Edit Band', edit_band_url(@band) %>
+    <% link_to 'Create Band', new_band_url %>
+    <% link_to 'Delete Band', band_url(@band) %>
+    <% link_to 'All Bands!'. bands_url %>
+  </li>
+
+
+  </body>
+</html>
