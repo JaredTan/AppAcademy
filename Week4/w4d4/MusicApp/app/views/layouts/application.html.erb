@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<br>
+  <h1> Bands and stuff! </h1>
+<br>
+
+  <%= button_to "Sign Up", new_user_url, method: :get%>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+
+  <footer>
+    This is Jard's Music App!
+    <%= yield :footer %>
+  </footer>
+
+</html>

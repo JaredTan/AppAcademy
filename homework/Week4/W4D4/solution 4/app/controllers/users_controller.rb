@@ -7,10 +7,12 @@ class UsersController < ApplicationController
       msg = UserMailer.welcome_email(@user)
       msg.deliver_now
       login_user!(@user)
+      flash[:notice] = "hi georgio"
       redirect_to cats_url
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      flash[:errors] += ['hi janet']
+      redirect_to cats_url
     end
   end
 

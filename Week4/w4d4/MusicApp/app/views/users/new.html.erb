@@ -1,0 +1,25 @@
+<h1> Create Your User Profile!!! </h1>
+
+<form action="<%=users_url%>" method ="POST">
+
+  <% auth_token %>
+
+  <label for="user_email">Username</label>
+    <input type='text'
+     name='user[email]'
+     id='user_email'
+     value='<%= @user.email%>'
+     >
+
+   <label for="user_password">Password</label>
+     <input type='password'
+      name='user[password]'
+      id='user_password'
+      value='<%= @user.password%>'
+      >
+
+
+
+
+  <input type='submit' value='Submit'>
+</form>

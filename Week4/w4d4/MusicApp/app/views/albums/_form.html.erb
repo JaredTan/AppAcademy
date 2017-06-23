@@ -1,0 +1,22 @@
+<% action = album.persisted? ? album_url(album) : album_url %>
+<% method = album.persisted? ? 'PATCH' : 'POST' %>
+
+<form action= "<%=action%>" method="POST">
+  <input type="hidden" name="_method" value="<%=method%>">
+
+    <% auth_token %>
+
+    <label for="album_name">Album Name</label>
+      <input type="text"
+        name="album[name]"
+        id="album_name"
+        value="<%=album.name%>">
+      </input>
+    </label>
+
+    <% submit_text = album.persisted? ? 'Edit Album' : 'Create Album' %>
+
+    <input type="submit" value="<%submit_text%>">
+
+
+</form>

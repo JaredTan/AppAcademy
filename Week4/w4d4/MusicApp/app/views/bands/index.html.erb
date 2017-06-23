@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <br>
+  <title>Band List!</title>
+  <br>
+  </head>
+  <body>
+    <% @bands.each do |band| %>
+      <%= link_to "#{band.name}", band_url(band) %>
+    <% end %>
+  </body>
+</html>
+
+<% content_for :footer do %>
+  <p> This is the bands page! </p>
+<% end %>
