@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
 
-before_action :require_logged_in
+  before_action :require_logged_in
 
   def index
     @bands = Band.all
@@ -15,8 +15,7 @@ before_action :require_logged_in
   def create
     @band = Band.new(band_params)
     if @band.save
-      flash[:notice] = 'You successfully added an band!'
-      redirect_to band_url(@band)
+      redirect_to bands_url
     else
       flash.now[:errors] = @band.errors.full_messages
       render :new
@@ -24,7 +23,12 @@ before_action :require_logged_in
   end
 
   def edit
-    @band = Band.find_by_name(params[:name])
+    @band = Band.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @band = Band.find(params[:id])
     if @band.update_attributes
       redirect_to band_url(@band)
     else
@@ -34,13 +38,14 @@ before_action :require_logged_in
   end
 
   def show
-    @band = Band.find_by_name(params[:name])
-    if @band
-      redirect_to band_url(@band)
-    else
-      flash.now[:errors] = @band.errors.full_messages
-      redirect_to bands_url
-    end
+    @band = Band.find(params[:id])
+    render :show
+  end
+
+  def destroy
+    @band = Band.find(params[:id])
+    @band.destroy
+    redirect_to root_url
   end
 
   private

@@ -1,0 +1,14 @@
+<h1><%= @album.name %></h1>
+
+<ul>
+  <% @album.tracks.each do |track|  %>
+    <li><%= link_to track.name, track_url(track) %></li>
+  <% end %>
+</ul>
+
+<p>Artist: <%= Band.find(@album.band_id).name %></p>
+<p><%= @album.live ? "Live" : "Studio" %></p>
+<p>Year: <%= @album.year %></p>
+
+<%= link_to "Add Track", new_album_track_url(@album.id) %>
+<%= link_to "Artist Albums", band_url(@album.band_id) %>
