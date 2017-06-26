@@ -1,0 +1,13 @@
+<h1>New Comment!</h1>
+
+ <form action="<%=comments_url%>" method="post">
+   <%= auth_token %>
+   <label for="comment_body">Comment</label>
+   <input id='Comment'type="text" name="comment[body]" value=" <%= @comment.body  %>">
+
+   <label for="comment_link_id">Link ID</label>
+   <input id='Link ID'type="text" name="comment[link_id]" value=" <%= @comment.link_id  %>">
+
+   <input type="submit" value="Add Comment">
+
+ </form>

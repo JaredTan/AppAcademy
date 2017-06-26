@@ -26,10 +26,12 @@
   <br>
 
   <label for="track_bonus_t">Bonus</label>
-  <input type="radio" name="track[bonus]" value="t">
+  <input type="radio" name="track[bonus]" value="t"
+  <%= "checked" if track.bonus %>>
 
   <label for="track_bonus_f">Regular</label>
-  <input type="radio" name="track[bonus]" value="f">
+  <input type="radio" name="track[bonus]" value="f"
+  <%= 'checked' unless track.bonus %>>
 
   <br>
 

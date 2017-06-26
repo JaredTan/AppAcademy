@@ -1,0 +1,11 @@
+<h1> All the Links! </h1>
+
+
+
+<% @links.each do |link| %>
+  <ul>
+    Author: <%="#{User.find(link.user_id).username}"%> <%= link_to "#{link.title}", link_url(link) %>
+  </ul>
+<% end %>
+
+<%= link_to 'New Link', new_link_url %>

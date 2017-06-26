@@ -10,5 +10,6 @@
 <p><%= @album.live ? "Live" : "Studio" %></p>
 <p>Year: <%= @album.year %></p>
 
-<%= link_to "Add Track", new_album_track_url(@album.id) %>
+<%= link_to "Add Album", new_album_track_url(@album.id) %>
+<%= button_to "Edit Album", edit_album_url(@album), method: :get %>
 <%= link_to "Artist Albums", band_url(@album.band_id) %>

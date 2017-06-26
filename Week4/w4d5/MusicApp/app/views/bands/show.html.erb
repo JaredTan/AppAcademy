@@ -10,5 +10,5 @@
 
 <%= link_to 'Add Album', new_band_album_url(@band.id) %>
 <%= link_to 'All Bands', bands_url  %>
-<%= button_to 'Edit Band', band_url(@band), method: :patch %>
+<%= button_to 'Edit Band', edit_band_url(@band), method: :get %>
 <%= button_to 'Delete Band', band_url(@band), method: :delete %>
