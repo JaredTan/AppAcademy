@@ -1,0 +1,25 @@
+<h1><%=@link.title%></h1>
+<h2>Author: <%=User.find(@link.user_id).username%> </h2>
+<h2>Link URL: <%=@link.url%> </h2>
+
+<% @link.comments.each do |comment| %>
+<ul>
+  <%= comment.body %>
+  <%= button_to 'Remove Comment', comment_url, method: :delete %>
+</ul>
+
+<% end %>
+
+<h2>Add Comment</h2>
+<form action="<%=comments_url%>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="comment[link_id]" value="<%=@link.id%>">
+
+  <label for="comment[body]">Comment</label>
+  <input id='Comment'type="text" name="comment[body]" value="">
+
+  <input type="submit" value="Add Comment">
+</form>
+
+<%= link_to 'Links', links_url %>
+<%= link_to 'Edit Link', edit_link_url %>
