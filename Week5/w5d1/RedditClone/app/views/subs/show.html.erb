@@ -1,0 +1,13 @@
+<h1><%= @sub.title %></h1>
+<p>by <%= @sub.moderator.username %></p>
+<p>Description: <%= @sub.description %></p>
+<br>
+<%= button_to "Make New Post", new_post_url, method: :get %>
+<br>
+<ul>
+  <% @sub.posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post_url(post), method: :get %>
+    </li>
+  <% end  %>
+</ul>
