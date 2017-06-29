@@ -103,15 +103,7 @@ function merge(left,right){
     }
   }
 
-  let new_arr = [];
-  if (left.length > 0){
-    new_arr = new_sub_arr.concat(left);
-  }
-
-  if (right.length > 0) {
-    new_arr = new_sub_arr.concat(right);
-  }
-  return new_arr;
+  return new_sub_arr.concat(left).concat(right)
 }
 
 mergesort([2,5,1,3,7,3,9,0]);
