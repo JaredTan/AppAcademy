@@ -4,13 +4,13 @@ function GameView(game, ctx) {
 }
 
 GameView.prototype.start = function() {
-  setInterval(() => this.movement(), Math.floor(1000/60));
-  setInterval(() => this.game.draw(this.ctx), Math.floor(1000/60));
+  setInterval(() => this.movement(), Math.floor(1000));
+  setInterval(() => this.game.draw(this.ctx), Math.floor(1000));
 };
 
 GameView.prototype.movement = function() {
   this.game.moveObjects();
-  this.game.asteroids.forEach ( el => this.game.checkCollisions(el) );
+  // this.game.checkCollisions();
 };
 
 module.exports = GameView;

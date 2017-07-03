@@ -4,7 +4,7 @@ let MovingObject = require("./moving_object.js");
 function COLORS() {return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
 
-function RADIUS() {return 15 + Math.floor(Math.random() * 100) % 25;}
+function RADIUS() {return 15 + (Math.random() * 100) % 25;}
 
 const VELOCITY = 5;
 
@@ -21,6 +21,13 @@ function Asteroid(options = {}) {
   ];
   MovingObject.call(this, options);
 }
+
+Asteroid.prototype.bounce = function() {
+  // console.log('Bounce'!);
+  this.vel[0] = 0;
+  console.log(this.vel);
+  this.vel[1] = 0;
+};
 
 Util.inherits(Asteroid, MovingObject);
 

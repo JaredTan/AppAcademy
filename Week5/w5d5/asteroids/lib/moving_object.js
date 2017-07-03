@@ -33,17 +33,18 @@ function MovingObject(options) {
     let x1 = this.pos[0];
     let y1 = this.pos[1];
     let x2 = otherObject.pos[0];
-    let y2 = otherObject.pos[0];
-    let dist = (Math.pow(Math.sqrt(x2 - x1), 2) + Math.pow(Math.sqrt(y2 - y1), 2));
+    let y2 = otherObject.pos[1];
+    let dist = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     let r1 = this.radius;
     let r2 = otherObject.radius;
-    return dist < (r1 + r2);
+    return dist <= (r1 + r2);
   };
-
-  MovingObject.prototype.bounce = function() {
-    this.vel[0] *= -1;
-    this.vel[1] *= -1;
-  };
+  //
+  // MovingObject.prototype.bounce = function() {
+  //   console.log('Bounce');
+  //   this.vel[0] *= -1;
+  //   this.vel[1] *= -1;
+  // };
 
 
 module.exports = MovingObject;
