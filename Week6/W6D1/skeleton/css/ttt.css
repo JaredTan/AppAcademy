@@ -1,0 +1,50 @@
+.ttt {
+  width: 0 auto;
+  margin: 0 auto;
+  background: none;
+}
+
+li {
+  float: left;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.square {
+  outline: 5px solid black;
+  width: 100px;
+  height: 100px;
+  float: left;
+  transition: outline 0.1s, background-color 0.1s;
+  cursor: crosshair;
+  background-color: grey;
+  list-style: none;
+  font-size: 72px;
+  font-family: sans-serif;
+}
+
+.square:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+
+.square.click {
+  background-color: pink;
+}
+
+.title {
+  text-align: center;
+}
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+ul.group {
+  margin: 0;
+  width: 300px;
+  padding: 0;
+}

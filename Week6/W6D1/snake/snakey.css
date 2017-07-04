@@ -1,0 +1,58 @@
+html, body, figure, figcaption, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+h1 {
+  font-size: 60px;
+  margin: 30px;
+}
+
+figure {
+  display: inline-block;
+  border: 10px solid black;
+  background-image: url('./David_Dobrynin_1.jpg');
+  background-size: cover;
+}
+
+ul {
+
+}
+
+ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+li {
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.negg {
+  background: pink;
+}
+
+.negg2 {
+  background: orange;
+}
+
+.snake {
+  background: blue;
+}
