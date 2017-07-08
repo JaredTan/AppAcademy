@@ -1,0 +1,42 @@
+html, div, h1, h2 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+
+  font: inherit;
+  text-align: center;
+  text-decoration: inherit;
+  background: transparent;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+input {
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.clock {
+  border: 2px solid gray;
+  background-color: pink;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.weather {
+  background-color: orange;
+  border: 2px solid gray;
+  padding: 5px;
+  margin: 5px;
+}
