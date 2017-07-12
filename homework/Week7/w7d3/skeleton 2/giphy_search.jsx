@@ -6,13 +6,8 @@ import * as APIUtil from './util/api_util.js';
 import {fetchSearchGiphys} from './actions/giphy_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
-//
 	const store = configureStore();
   console.log(store);
-	// const root = document.getElementById('root');
-	// ReactDOM.render(<Root store={store} />, root);
-//
-  window.store = store;
-  // window.receiveSearchGiphys = receiveSearchGiphys();
-  window.fetchSearchGiphys = APIUtil.fetchSearchGiphys;
+	const root = document.getElementById('root');
+	ReactDOM.render(<Root store={store} />, root);
 });
