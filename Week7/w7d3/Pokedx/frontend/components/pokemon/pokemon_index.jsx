@@ -15,7 +15,7 @@ class PokemonIndex extends React.Component {
 
 render () {
   const {pokemon} = this.props;
-  console.log(pokemon);
+  console.log(pokemon, 'why');
   return (
   <ul>
       {pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />)}
